@@ -4,8 +4,8 @@ import cors from "cors";
 import path from "path";
 
 const app = express();
-const PORT = 3500;
-const dbConnectionString = "mongodb://localhost:27017/lobwebhooks"
+const PORT = 5000;
+const dbConnectionString = "mongodb://localhost:27017/lobchecks"
 app.use(express.urlencoded({ extended: true }));
 app.use(express.text());
 app.use(express.json({ type: "application/json" }));
@@ -24,7 +24,7 @@ const routes = require("./routes/web.js");
 app.use(routes);
 
 app.listen(PORT,(error) => {
-  console.log(`Speak, I am listening on port ${PORT}`);
+  console.log(`Node, is listening on port ${PORT}`);
 
   if(error){
     console.log(error);

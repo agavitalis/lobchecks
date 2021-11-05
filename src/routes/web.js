@@ -6,8 +6,7 @@ const router = express.Router();
 | Controller Import
 |-------------------------------------------------------------------------------
 */
-const letterController = require("../controllers/letter.controller");
-const webhookController = require("../controllers/webhook.controller");
+const checkController = require("../controllers/check.controller");
 
 /*
 |-------------------------------------------------------------------------------
@@ -16,18 +15,14 @@ const webhookController = require("../controllers/webhook.controller");
 */
 
 router.route("/")
-    .get(letterController.createLetter)
-    .post(letterController.createLetterPost)
+    .get(checkController.createCheck)
+    .post(checkController.createCheckPost)
   
-router.route("/getLetter/:letterId")
-    .get(letterController.getALetter)
+router.route("/getCheck/:checkId")
+    .get(checkController.getACheck)
 
-router.route("/getLetters")
-    .get(letterController.getLetters)
-
-router.route("/processWebhookEvent")
-    .post(webhookController.processWebhookEventPost);
-   
+router.route("/getChecks")
+    .get(checkController.getChecks)
 
     
 /*

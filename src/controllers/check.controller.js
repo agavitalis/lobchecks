@@ -1,10 +1,10 @@
 
 const Lob = require('lob')('test_e714c6edeb9abbf049924858d337c93b567');
-import Letter from "../models/letter"
+import Check from "../models/check"
 /*
- * GET / route to show the createLetter form.
+ * GET / route to show the createCheck form.
  */
-function createLetter(req, res) {
+function createCheck(req, res) {
     //catch any response on the url
     let response = req.query.response
     res.render('index', { response })
@@ -12,9 +12,9 @@ function createLetter(req, res) {
 
 
 /*
- * POST / route to process the letters.
+ * POST / route to process the checks.
  */
-function createLetterPost(req, res) {
+function createCheckPost(req, res) {
 
     const myStory = req.body.story
     // Create the address
@@ -30,8 +30,8 @@ function createLetterPost(req, res) {
         address_country: 'US'
     })
         .then((address) => {
-            return Lob.letters.create({
-                description: 'My First Letter',
+            return Lob.checks.create({
+                description: 'My First Check',
                 to: address.id,
                 from: {
                     name: 'Test Person',
@@ -49,10 +49,10 @@ function createLetterPost(req, res) {
                 color: true
             });
         })
-        .then((letter) => {
-            const { id, ...otherProperties } = letter;
-            Letter.create({ letterId: id, ...otherProperties })
-            res.redirect('/?response=Your letter was successfully sent')
+        .then((check) => {
+            const { id, ...otherProperties } = check;
+            Check.create({ checkId: id, ...otherProperties })
+            res.redirect('/?response=Your check was successfully sent')
         })
         .catch((err) => {
             console.log(err);
@@ -62,28 +62,28 @@ function createLetterPost(req, res) {
 
 
 /*
- * GET / route to get created letters.
+ * GET / route to get created checks.
  */
-function getLetters(req, res) {
+function getChecks(req, res) {
 
-    Lob.letters.list({ limit: 50 }, function (err, response) {
-        const letters = response.data
-        res.render('letters', { letters })
+    Lob.checks.list({ limit: 50 }, function (err, response) {
+        const checks = response.data
+        res.render('checks', { checks })
     });
 
 }
 
 /*
- * GET / route to get a letter.
+ * GET / route to get a check.
  */
-function getALetter(req, res) {
-    const letterId = req.params.letterId
-    Lob.letters.retrieve(letterId, function (err, response) {
-        const letter = response
-        res.render('letter', { letter })
+function getACheck(req, res) {
+    const checkId = req.params.checkId
+    Lob.checks.retrieve(checkId, function (err, response) {
+        const check = response
+        res.render('check', { check })
     });
 
 }
 
 //export all the functions
-module.exports = { createLetter, createLetterPost, getLetters, getALetter };
+module.exports = { createCheck, createCheckPost, getChecks, getACheck };
