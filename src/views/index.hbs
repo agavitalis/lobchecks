@@ -87,13 +87,29 @@
 
 								<!-- /step-->
 								<div class="submit step">
-									<h3 class="main_question"><strong>1/1</strong>Send letter to your buddy!</h3>
+									<h3 class="main_question"><strong>1/1</strong>Send some check your buddy!</h3>
 
-									<div class="form-group add_top_30">
-										<label>Tell your story here</label>
-										<textarea name="story" class="form-control required"
-											style="height:150px;" placeholder="Tell your story here..."
+									<div class="form-group">
+										<label>Amount</label>
+										<input type="text" class="form-control" name="amount" required>
+									</div>
+									<div class="form-group">
+										<label>To</label>
+										<input type="text" class="form-control" name="to" required>
+									</div>
+									<div class="form-group">
+										<label>From</label>
+										<input type="text" class="form-control" name="from" required>
+									</div>
+									<div class="form-group">
+										<label>Memo</label>
+										<textarea name="memo" class="form-control" required
+											style="height:70px;" placeholder="Enter your memo here..."
 										></textarea>
+									</div>
+									<div class="form-group">
+										<label>Send Date</label>
+										<input type="date" class="form-control" required>
 									</div>
 								</div>
 
@@ -108,7 +124,7 @@
                             {{/if}}
 							<!-- /middle-wizard -->
 							<div id="bottom-wizard">
-								<button type="submit" class="submit">Submit</button>
+								<button type="submit" class="submit">Send Check</button>
 							</div>
 							<!-- /bottom-wizard -->
 						</form>
