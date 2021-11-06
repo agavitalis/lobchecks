@@ -24,6 +24,9 @@ router.route("/getCheck/:checkId")
 router.route("/getChecks")
     .get(checkController.getChecks)
 
+router.route("/cancelACheck/:checkId")
+    .get(checkController.cancelACheck)
+    
     
 /*
 |-------------------------------------------------------------------------------
