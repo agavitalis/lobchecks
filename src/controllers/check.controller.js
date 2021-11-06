@@ -1,6 +1,8 @@
-
-const Lob = require('lob')('test_e714c6edeb9abbf049924858d337c93b567');
+import dotenv from 'dotenv';
+dotenv.config();
+const Lob = require('lob')(process.env.LOB_API_KEY);
 import Check from "../models/check"
+
 /*
  * GET / route to show the createCheck form.
  */
@@ -10,14 +12,12 @@ function createCheck(req, res) {
     res.render('index', { response })
 }
 
-
 /*
  * POST / route to process the checks.
  */
 async function createCheckPost(req, res) {
 
     const { amount, receiver, sender, memo, date } = req.body
-    console.log(req.body,"receiver----------------------------")
     // Create the bank account
     const bankAccount = await Lob.bankAccounts.create({
         description: 'Test Bank Account',
@@ -109,8 +109,7 @@ function getACheck(req, res) {
 function cancelACheck(req, res) {
     const checkId = req.params.checkId
     Lob.checks.delete(checkId, function (err, response) {
-        const check = response
-        res.render('check', { check })
+        res.redirect('/getChecks?response=Check cancelation initiated successfully')
     });
 }
 

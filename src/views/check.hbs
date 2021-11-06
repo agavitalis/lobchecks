@@ -60,45 +60,64 @@
 
                     <div class="row">
                         <div class="jumbotron">
-                            <h1 class="display-4">{{letter.description}}</h1>
+                            <h4 class="display-6">{{check.description}}- Amount:{{check.amount}}</h4>
+                            <p>Check Number: {{check.check_number}} - Memo: {{check.memo}}</p>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action active">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">To: {{letter.to.name}}</h5>
-                                                <small>{{letter.to.date_created}}</small>
+                                                <h5 class="mb-1">To: {{check.to.name}}</h5>
+                                                <small>{{check.to.date_created}}</small>
                                             </div>
-                                            <p class="mb-1">Phone: {{letter.to.phone}}.</p>
-                                            <p class="mb-1">Phone: {{letter.to.email}}.</p>
-                                            <p class="mb-1">Address 1: {{letter.to.address_line1}}.</p>
-                                            <small>Address 2: {{letter.to.address_line2}}</small>
-                                            <small>City: {{letter.to.address_city}}</small>
-                                            <small>State: {{letter.to.address_state}}</small>
-                                            <small>Zip: {{letter.to.address_zip}}</small>
-                                            <small>Country: {{letter.to.address_country}}</small>
+                                            <p class="mb-1">Phone: {{check.to.phone}}.</p>
+                                            <p class="mb-1">Phone: {{check.to.email}}.</p>
+                                            <p class="mb-1">Address 1: {{check.to.address_line1}}.</p>
+                                            <small>Address 2: {{check.to.address_line2}}</small>
+                                            <small>City: {{check.to.address_city}}</small>
+                                            <small>State: {{check.to.address_state}}</small>
+                                            <small>Zip: {{check.to.address_zip}}</small>
+                                            <small>Country: {{check.to.address_country}}</small>
 
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="list-group">
+
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h5 class="mb-1">From: {{check.from.name}}</h5>
+                                                <small>{{check.from.date_created}}</small>
+                                            </div>
+                                            <p class="mb-1">Phone: {{check.from.phone}}.</p>
+                                            <p class="mb-1">Phone: {{check.from.email}}.</p>
+                                            <p class="mb-1">Address 1: {{check.from.address_line1}}.</p>
+                                            <small>Address 2: {{check.from.address_line2}}</small>
+                                            <small>City: {{check.from.address_city}}</small>
+                                            <small>State: {{check.from.address_state}}</small>
+                                            <small>Zip: {{check.from.address_zip}}</small>
+                                            <small>Country: {{check.from.address_country}}</small>
                                         </a>
 
                                     </div>
 
                                 </div>
-                                <div class="col-md-6">
+                                 <div class="col-md-4">
                                     <div class="list-group">
 
-                                        <a href="#" class="list-group-item list-group-item-action">
+                                        <a href="#" class="list-group-item list-group-item-action active">
                                             <div class="d-flex w-100 justify-content-between">
-                                                <h5 class="mb-1">From: {{letter.from.name}}</h5>
-                                                <small>{{letter.from.date_created}}</small>
+                                                <h5 class="mb-1">Bank: {{check.bank_account.bank_name}}</h5>
+                                                <small>Account Number:{{check.bank_account.account_number}}</small>
                                             </div>
-                                            <p class="mb-1">Phone: {{letter.from.phone}}.</p>
-                                            <p class="mb-1">Phone: {{letter.from.email}}.</p>
-                                            <p class="mb-1">Address 1: {{letter.from.address_line1}}.</p>
-                                            <small>Address 2: {{letter.from.address_line2}}</small>
-                                            <small>City: {{letter.from.address_city}}</small>
-                                            <small>State: {{letter.from.address_state}}</small>
-                                            <small>Zip: {{letter.from.address_zip}}</small>
-                                            <small>Country: {{letter.from.address_country}}</small>
+                                            <p class="mb-1">Routing Number: {{check.bank_account.routing_number}}.</p>
+                                            <p class="mb-1">Signatory: {{check.bank_account.signatory}}.</p>
+                                            <p class="mb-1">Account Type: {{check.bank_account.account_type}}.</p>
+                                            <small>Description: {{check.bank_account.description}}</small>
+                                            <small>Verification Status: {{check.bank_account.verified}}</small>
+                                            <small>Bank ID: {{check.bank_account.id}}</small>
                                         </a>
 
                                     </div>
@@ -106,14 +125,14 @@
                                 </div>
 
                             </div>
-                            <p class="lead">Delivery date:{{letter.expected_delivery_date}}</p>
+                            <p class="lead">Delivery date:{{check.expected_delivery_date}}</p>
                             <hr class="my-4">
-                            <p class="mb-1">Carrier: {{letter.carrier}}.</p>
-                            <p>Carrier Type: {{letter.mail_type}}.</p>
+                            <p class="mb-1">Carrier: {{check.carrier}}.</p>
+                            <p>Carrier Type: {{check.mail_type}}.</p>
                             <hr class="my-4">
                             <p>Status:
-                                {{#if letter.event_type.id}}
-                                {{letter.event_type.id}}
+                                {{#if check.event_type.id}}
+                                {{check.event_type.id}}
                                 {{else}}
                                 No event yet
                                 {{/if}}

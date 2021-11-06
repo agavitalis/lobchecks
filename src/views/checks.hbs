@@ -61,7 +61,7 @@
 
 					<!-- /social -->
 					<div>
-						<figure><img src="img/sent.svg" style="height: 15em;" alt="" class="img-fluid"></figure>
+						<figure><img src="img/check.svg" style="height: 15em;" alt="" class="img-fluid"></figure>
 						<h2>Lob Checks & API</h2>
 						<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu,
 							facete detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu
@@ -77,17 +77,17 @@
 
 			<div class="col-lg-6 content-right" id="start" style="height:auto">
 				<div class="row">
-					<h1>Letters</h1>
+					<h1>Checks</h1>
 					<div class="row">
-						{{#each letters}}
+						{{#each checks}}
 						<div class="col-md-6 mb-2">
 							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" src="./img/envelop.png" alt="Card image cap">
+								<img class="card-img-top" src="./img/checkImg.png" alt="Card image cap">
 								<div class="card-body">
 									<h5 class="card-title">{{description}}</h5>
 									<p class="card-text">{{to.name}}</p>
-									<a href="/getLetter/{{id}}" class="btn btn-info btn-sm">Open Letter</a>
-									<a href="{{url}}" class="btn btn-primary btn-sm">Download as PDF</a>
+									<a href="/getCheck/{{id}}" class="btn btn-info btn-sm">Open Check</a>
+									<a href="/cancelACheck/{{id}}" class="btn btn-danger btn-sm">Cancel Check</a>
 								</div>
 							</div>
 						</div>
