@@ -24,7 +24,6 @@ async function createCheckPost(req, res) {
         routing_number: 322271627,
         account_number: 123456789,
         signatory: 'John Doe',
-        account_type: 'company'
     });
 
     const bankAccountVerification = await Lob.bankAccounts.verify(bankAccount.id, {
